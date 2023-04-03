@@ -1,12 +1,33 @@
+"""
+Description: 
+    Generates a 400Hz tone on a connected buzzer
+
+Cable Connections: 
+    Buzzer Vcc -> 3V3
+    Buzzer Gnd -> GND
+    Buzzer I/O -> D7
+
+Additional Challenges:
+    - Change the pitch of the tone
+    - Make a sirene that changes pitch
+
+"""
 import board
 import time
 from digitalio import DigitalInOut, Direction
 
-led = DigitalInOut(board.D7)
-led.direction = Direction.OUTPUT
+# Setup the buzzer
+buzzer = DigitalInOut(board.D7)
+buzzer.direction = Direction.OUTPUT
 
+# Start the endless loop
+frequency = 400 # Hz
 while True:
-    led.value = True
-    time.sleep(1/800)
-    led.value = False
-    time.sleep(1/800)
+
+    # Pull the buzzer membrane up for a short amount of time
+    buzzer.value = True
+    time.sleep(1/(frequency * 2))
+
+    # Pull the buzzer membrane down for a short amount of time
+    buzzer.value = False
+    time.sleep(1/(frequency * 2))
