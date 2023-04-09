@@ -1,5 +1,14 @@
-#https://www.youtube.com/watch?v=aynfMtX0fiY
-#https://pages.mtu.edu/~suits/notefreqs.html
+"""
+Description: 
+    Plays Mozart - Rondo Alla Turca on the buzzer, use the joystick to control the speed (see https://pages.mtu.edu/~suits/notefreqs.html and https://www.youtube.com/watch?v=aynfMtX0fiY)
+Cable Connections: 
+    Buzzer Vcc -> 3V3
+    Buzzer Gnd -> GND
+    Buzzer I/O -> D7
+    Joystick +5W -> 3V3
+    Joystick GND -> GND
+    Joystick VRx -> A1
+"""
 import board
 import simpleio
 import time
