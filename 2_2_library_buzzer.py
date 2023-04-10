@@ -17,4 +17,4 @@ import simpleio
 
 while True:
     # Play a 1s tone on the buzzer with a 400Hz frequency
-    simpleio.tone(board.D7, 400, duration=1)
+    simpleio.tone(board.D7, 500, duration=1)
