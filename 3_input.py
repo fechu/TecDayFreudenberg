@@ -9,7 +9,7 @@ Cable Connections:
 
     Sensor Vcc -> 3V3
     Sensor Gnd -> GND
-    Sensor S   -> D0
+    Sensor S   -> D9
 
 Additional Challenges:
     - Play a melody when the sensor activates
@@ -20,8 +20,8 @@ import simpleio
 from digitalio import DigitalInOut, Direction
 import time
 
-# Set the D0 pin up to read from the sensor
-input = DigitalInOut(board.D0)
+# Set the D9 pin up to read from the sensor
+input = DigitalInOut(board.D9)
 input.direction = Direction.INPUT
 
 while True:
