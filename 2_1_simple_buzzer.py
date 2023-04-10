@@ -21,13 +21,13 @@ buzzer = DigitalInOut(board.D7)
 buzzer.direction = Direction.OUTPUT
 
 # Start the endless loop
-frequency = 400 # Hz
 while True:
 
     # Pull the buzzer membrane up for a short amount of time
     buzzer.value = True
-    time.sleep(1/(frequency * 2))
+    time.sleep(0.001)
 
     # Pull the buzzer membrane down for a short amount of time
     buzzer.value = False
-    time.sleep(1/(frequency * 2))
+    time.sleep(0.001)
+
