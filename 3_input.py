@@ -1,28 +1,29 @@
 """
 Description: 
-    Plays a tone on the buzzer if the connected sensor value reads False
+    Plays a tone on the buzzer when the button is pressed.
 
 Cable Connections: 
     Buzzer Vcc -> 3V3
     Buzzer Gnd -> GND
     Buzzer I/O -> D7
 
-    Sensor Vcc -> 3V3
-    Sensor Gnd -> GND
-    Sensor S   -> D9
+    Button -> D9
+    Button -> GND
 
 Additional Challenges:
-    - Play a melody when the sensor activates
-    - USe multiple sensors and do different actions for each of them
+    - Play a melody when the button is pressed
+    - Replace the button with a sensor
+    - Use multiple sensors and do different actions for each of them
 """
 import board
 import simpleio
-from digitalio import DigitalInOut, Direction
+from digitalio import DigitalInOut, Direction, Pull
 import time
 
-# Set the D9 pin up to read from the sensor
+# Set the D9 pin up to read from the sensor / button
 input = DigitalInOut(board.D9)
 input.direction = Direction.INPUT
+input.pull = Pull.UP
 
 while True:
     # If the sensor is activated, play a short tone on the buzzer
