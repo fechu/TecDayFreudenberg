@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Button</title>
+</head>
+<body>
+
+<button id="left">&lt;-</button>
+<button id="right">-&gt;</button>
+<button id="forward">^</button>
+<button id="backward">v</button>
+<button id="stop">stop</button>
+
+<div id="response"></div>
+
+<img id="cam" src="cam.jpg">
+
+<script>
+function buttonClick(event) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/' + event.target.id, true);
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            console.log('Request successful:', xhr.responseText);
+            document.getElementById("response").innerHTML = xhr.responseText;
+        } else {
+            console.error('Request failed with status:', xhr.status);
+        }
+    };
+    xhr.onerror = function() {
+        console.error('Network error occurred');
+    };
+    xhr.send();
+};
+
+var buttons = document.querySelectorAll("button");
+for (let i=0; i < buttons.length; i++) buttons[i].addEventListener('click', buttonClick);
+
+window.setInterval(function() { document.getElementById("cam").src="cam.jpg?"+Date.now() }, 500);
+</script>
+</body>
+</html>
